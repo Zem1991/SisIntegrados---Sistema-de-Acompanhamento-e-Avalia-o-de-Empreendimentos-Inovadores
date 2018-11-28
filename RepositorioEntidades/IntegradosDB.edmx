@@ -1,0 +1,573 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="IntegradosDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__RefactorLog">
+          <Key>
+            <PropertyRef Name="OperationKey" />
+          </Key>
+          <Property Name="OperationKey" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Administrador">
+          <Key>
+            <PropertyRef Name="ADID" />
+          </Key>
+          <Property Name="ADID" Type="int" Nullable="false" />
+          <Property Name="ADLogin" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ADSenha" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Aluno">
+          <Key>
+            <PropertyRef Name="ALIDaluno" />
+          </Key>
+          <Property Name="ALIDaluno" Type="int" Nullable="false" />
+          <Property Name="ALtipoAluno" Type="int" Nullable="false" />
+          <Property Name="ALemail" Type="varchar" MaxLength="100" />
+          <Property Name="ALsenha" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ALnome" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ALcurso" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ALperiodo" Type="int" Nullable="false" />
+          <Property Name="ALcampus" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ALprojetos" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Aluno_Projeto">
+          <Key>
+            <PropertyRef Name="ALPRIDprojeto" />
+            <PropertyRef Name="ALPRIDaluno" />
+          </Key>
+          <Property Name="ALPRIDprojeto" Type="int" Nullable="false" />
+          <Property Name="ALPRIDaluno" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Avaliador">
+          <Key>
+            <PropertyRef Name="AVIDavaliador" />
+          </Key>
+          <Property Name="AVIDavaliador" Type="int" Nullable="false" />
+          <Property Name="AVemail" Type="varchar" MaxLength="100" />
+          <Property Name="AVsenha" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="AVnome" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="AVareaAtuacao" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="AVformacao" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="AVprojetosAvaliados" Type="text" />
+          <Property Name="AVProjetosEmAvaliacao" Type="text" />
+        </EntityType>
+        <EntityType Name="Avaliador_Projeto">
+          <Key>
+            <PropertyRef Name="AVPRIDavaliador" />
+            <PropertyRef Name="AVPRIDprojeto" />
+          </Key>
+          <Property Name="AVPRIDavaliador" Type="int" Nullable="false" />
+          <Property Name="AVPRIDprojeto" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LOLogin" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LOSenha" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LOTipoUsuario" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Orientador_Projeto">
+          <Key>
+            <PropertyRef Name="ORPRIDprofessor" />
+            <PropertyRef Name="ORPRIDprojeto" />
+          </Key>
+          <Property Name="ORPRIDprofessor" Type="int" Nullable="false" />
+          <Property Name="ORPRIDprojeto" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Professor">
+          <Key>
+            <PropertyRef Name="PRIDprofessor" />
+          </Key>
+          <Property Name="PRIDprofessor" Type="int" Nullable="false" />
+          <Property Name="PRemail" Type="varchar" MaxLength="100" />
+          <Property Name="PRsenha" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PRdisciplinaPrincipal" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PRdepartamento" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="PRtipoProfessor" Type="int" Nullable="false" />
+          <Property Name="PRprojetosQueOrienta" Type="text" />
+          <Property Name="PRprojetosQueOrientou" Type="text" />
+          <Property Name="PRnome" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Projeto">
+          <Key>
+            <PropertyRef Name="PRIDprojeto" />
+          </Key>
+          <Property Name="PRIDprojeto" Type="int" Nullable="false" />
+          <Property Name="PRalunoLider" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="PRorientador" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="PRavaliadorExterno" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="PRnome" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="PRdescricao" Type="varchar(max)" />
+          <Property Name="PRnotaFinal" Type="float" />
+          <Property Name="PRStatusProjeto" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PRComentarios" Type="text" />
+          <Property Name="PRAvaliacao" Type="text" />
+        </EntityType>
+        <EntityType Name="TipoUsuario">
+          <Key>
+            <PropertyRef Name="TUIDusuario" />
+          </Key>
+          <Property Name="TUIDusuario" Type="int" Nullable="false" />
+          <Property Name="TUdescricao" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="ALPRIDaluno">
+          <End Role="Aluno" Type="Self.Aluno" Multiplicity="1" />
+          <End Role="Aluno_Projeto" Type="Self.Aluno_Projeto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Aluno">
+              <PropertyRef Name="ALIDaluno" />
+            </Principal>
+            <Dependent Role="Aluno_Projeto">
+              <PropertyRef Name="ALPRIDaluno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ALPRIDprojeto">
+          <End Role="Projeto" Type="Self.Projeto" Multiplicity="1" />
+          <End Role="Aluno_Projeto" Type="Self.Aluno_Projeto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projeto">
+              <PropertyRef Name="PRIDprojeto" />
+            </Principal>
+            <Dependent Role="Aluno_Projeto">
+              <PropertyRef Name="ALPRIDprojeto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AVPRIDavaliador">
+          <End Role="Avaliador" Type="Self.Avaliador" Multiplicity="1" />
+          <End Role="Avaliador_Projeto" Type="Self.Avaliador_Projeto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Avaliador">
+              <PropertyRef Name="AVIDavaliador" />
+            </Principal>
+            <Dependent Role="Avaliador_Projeto">
+              <PropertyRef Name="AVPRIDavaliador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AVPRIDprojeto">
+          <End Role="Projeto" Type="Self.Projeto" Multiplicity="1" />
+          <End Role="Avaliador_Projeto" Type="Self.Avaliador_Projeto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projeto">
+              <PropertyRef Name="PRIDprojeto" />
+            </Principal>
+            <Dependent Role="Avaliador_Projeto">
+              <PropertyRef Name="AVPRIDprojeto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TipoAluno">
+          <End Role="TipoUsuario" Type="Self.TipoUsuario" Multiplicity="1" />
+          <End Role="Aluno" Type="Self.Aluno" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoUsuario">
+              <PropertyRef Name="TUIDusuario" />
+            </Principal>
+            <Dependent Role="Aluno">
+              <PropertyRef Name="ALtipoAluno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ORPRIDprofessor">
+          <End Role="Professor" Type="Self.Professor" Multiplicity="1" />
+          <End Role="Orientador_Projeto" Type="Self.Orientador_Projeto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Professor">
+              <PropertyRef Name="PRIDprofessor" />
+            </Principal>
+            <Dependent Role="Orientador_Projeto">
+              <PropertyRef Name="ORPRIDprofessor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ORPRIDprojeto">
+          <End Role="Projeto" Type="Self.Projeto" Multiplicity="1" />
+          <End Role="Orientador_Projeto" Type="Self.Orientador_Projeto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projeto">
+              <PropertyRef Name="PRIDprojeto" />
+            </Principal>
+            <Dependent Role="Orientador_Projeto">
+              <PropertyRef Name="ORPRIDprojeto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PRtipoProfessor">
+          <End Role="TipoUsuario" Type="Self.TipoUsuario" Multiplicity="1" />
+          <End Role="Professor" Type="Self.Professor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoUsuario">
+              <PropertyRef Name="TUIDusuario" />
+            </Principal>
+            <Dependent Role="Professor">
+              <PropertyRef Name="PRtipoProfessor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="IntegradosDBModelStoreContainer">
+          <EntitySet Name="__RefactorLog" EntityType="Self.__RefactorLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Administrador" EntityType="Self.Administrador" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Aluno" EntityType="Self.Aluno" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Aluno_Projeto" EntityType="Self.Aluno_Projeto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Avaliador" EntityType="Self.Avaliador" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Avaliador_Projeto" EntityType="Self.Avaliador_Projeto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Login" EntityType="Self.Login" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Orientador_Projeto" EntityType="Self.Orientador_Projeto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Professor" EntityType="Self.Professor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Projeto" EntityType="Self.Projeto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoUsuario" EntityType="Self.TipoUsuario" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="ALPRIDaluno" Association="Self.ALPRIDaluno">
+            <End Role="Aluno" EntitySet="Aluno" />
+            <End Role="Aluno_Projeto" EntitySet="Aluno_Projeto" />
+          </AssociationSet>
+          <AssociationSet Name="ALPRIDprojeto" Association="Self.ALPRIDprojeto">
+            <End Role="Projeto" EntitySet="Projeto" />
+            <End Role="Aluno_Projeto" EntitySet="Aluno_Projeto" />
+          </AssociationSet>
+          <AssociationSet Name="AVPRIDavaliador" Association="Self.AVPRIDavaliador">
+            <End Role="Avaliador" EntitySet="Avaliador" />
+            <End Role="Avaliador_Projeto" EntitySet="Avaliador_Projeto" />
+          </AssociationSet>
+          <AssociationSet Name="AVPRIDprojeto" Association="Self.AVPRIDprojeto">
+            <End Role="Projeto" EntitySet="Projeto" />
+            <End Role="Avaliador_Projeto" EntitySet="Avaliador_Projeto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TipoAluno" Association="Self.FK_TipoAluno">
+            <End Role="TipoUsuario" EntitySet="TipoUsuario" />
+            <End Role="Aluno" EntitySet="Aluno" />
+          </AssociationSet>
+          <AssociationSet Name="ORPRIDprofessor" Association="Self.ORPRIDprofessor">
+            <End Role="Professor" EntitySet="Professor" />
+            <End Role="Orientador_Projeto" EntitySet="Orientador_Projeto" />
+          </AssociationSet>
+          <AssociationSet Name="ORPRIDprojeto" Association="Self.ORPRIDprojeto">
+            <End Role="Projeto" EntitySet="Projeto" />
+            <End Role="Orientador_Projeto" EntitySet="Orientador_Projeto" />
+          </AssociationSet>
+          <AssociationSet Name="PRtipoProfessor" Association="Self.PRtipoProfessor">
+            <End Role="TipoUsuario" EntitySet="TipoUsuario" />
+            <End Role="Professor" EntitySet="Professor" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="IntegradosDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__RefactorLog">
+          <Key>
+            <PropertyRef Name="OperationKey" />
+          </Key>
+          <Property Name="OperationKey" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Administrador">
+          <Key>
+            <PropertyRef Name="ADID" />
+          </Key>
+          <Property Name="ADID" Type="Int32" Nullable="false" />
+          <Property Name="ADLogin" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ADSenha" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Aluno">
+          <Key>
+            <PropertyRef Name="ALIDaluno" />
+          </Key>
+          <Property Name="ALIDaluno" Type="Int32" Nullable="false" />
+          <Property Name="ALtipoAluno" Type="Int32" Nullable="false" />
+          <Property Name="ALemail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ALsenha" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ALnome" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ALcurso" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ALperiodo" Type="Int32" Nullable="false" />
+          <Property Name="ALcampus" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ALprojetos" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TipoUsuario" Relationship="Self.FK_TipoAluno" FromRole="Aluno" ToRole="TipoUsuario" />
+          <NavigationProperty Name="Projeto" Relationship="Self.Aluno_Projeto" FromRole="Aluno" ToRole="Projeto" />
+        </EntityType>
+        <EntityType Name="Avaliador">
+          <Key>
+            <PropertyRef Name="AVIDavaliador" />
+          </Key>
+          <Property Name="AVIDavaliador" Type="Int32" Nullable="false" />
+          <Property Name="AVemail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="AVsenha" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AVnome" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AVareaAtuacao" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AVformacao" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AVprojetosAvaliados" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="AVProjetosEmAvaliacao" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Projeto" Relationship="Self.Avaliador_Projeto" FromRole="Avaliador" ToRole="Projeto" />
+        </EntityType>
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LOLogin" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LOSenha" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LOTipoUsuario" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Professor">
+          <Key>
+            <PropertyRef Name="PRIDprofessor" />
+          </Key>
+          <Property Name="PRIDprofessor" Type="Int32" Nullable="false" />
+          <Property Name="PRemail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PRsenha" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PRdisciplinaPrincipal" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PRdepartamento" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PRtipoProfessor" Type="Int32" Nullable="false" />
+          <Property Name="PRprojetosQueOrienta" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PRprojetosQueOrientou" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PRnome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TipoUsuario" Relationship="Self.PRtipoProfessor" FromRole="Professor" ToRole="TipoUsuario" />
+          <NavigationProperty Name="Projeto" Relationship="Self.Orientador_Projeto" FromRole="Professor" ToRole="Projeto" />
+        </EntityType>
+        <EntityType Name="Projeto">
+          <Key>
+            <PropertyRef Name="PRIDprojeto" />
+          </Key>
+          <Property Name="PRIDprojeto" Type="Int32" Nullable="false" />
+          <Property Name="PRalunoLider" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PRorientador" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PRavaliadorExterno" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PRnome" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PRdescricao" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PRnotaFinal" Type="Double" />
+          <Property Name="PRStatusProjeto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PRComentarios" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PRAvaliacao" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Aluno" Relationship="Self.Aluno_Projeto" FromRole="Projeto" ToRole="Aluno" />
+          <NavigationProperty Name="Avaliador" Relationship="Self.Avaliador_Projeto" FromRole="Projeto" ToRole="Avaliador" />
+          <NavigationProperty Name="Professor" Relationship="Self.Orientador_Projeto" FromRole="Projeto" ToRole="Professor" />
+        </EntityType>
+        <EntityType Name="TipoUsuario">
+          <Key>
+            <PropertyRef Name="TUIDusuario" />
+          </Key>
+          <Property Name="TUIDusuario" Type="Int32" Nullable="false" />
+          <Property Name="TUdescricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Aluno" Relationship="Self.FK_TipoAluno" FromRole="TipoUsuario" ToRole="Aluno" />
+          <NavigationProperty Name="Professor" Relationship="Self.PRtipoProfessor" FromRole="TipoUsuario" ToRole="Professor" />
+        </EntityType>
+        <Association Name="FK_TipoAluno">
+          <End Role="TipoUsuario" Type="Self.TipoUsuario" Multiplicity="1" />
+          <End Role="Aluno" Type="Self.Aluno" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoUsuario">
+              <PropertyRef Name="TUIDusuario" />
+            </Principal>
+            <Dependent Role="Aluno">
+              <PropertyRef Name="ALtipoAluno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PRtipoProfessor">
+          <End Role="TipoUsuario" Type="Self.TipoUsuario" Multiplicity="1" />
+          <End Role="Professor" Type="Self.Professor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoUsuario">
+              <PropertyRef Name="TUIDusuario" />
+            </Principal>
+            <Dependent Role="Professor">
+              <PropertyRef Name="PRtipoProfessor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Aluno_Projeto">
+          <End Role="Aluno" Type="Self.Aluno" Multiplicity="*" />
+          <End Role="Projeto" Type="Self.Projeto" Multiplicity="*" />
+        </Association>
+        <Association Name="Avaliador_Projeto">
+          <End Role="Avaliador" Type="Self.Avaliador" Multiplicity="*" />
+          <End Role="Projeto" Type="Self.Projeto" Multiplicity="*" />
+        </Association>
+        <Association Name="Orientador_Projeto">
+          <End Role="Professor" Type="Self.Professor" Multiplicity="*" />
+          <End Role="Projeto" Type="Self.Projeto" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="IntegradosDBEntity" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__RefactorLog" EntityType="Self.C__RefactorLog" />
+          <EntitySet Name="Administrador" EntityType="Self.Administrador" />
+          <EntitySet Name="Aluno" EntityType="Self.Aluno" />
+          <EntitySet Name="Avaliador" EntityType="Self.Avaliador" />
+          <EntitySet Name="Login" EntityType="Self.Login" />
+          <EntitySet Name="Professor" EntityType="Self.Professor" />
+          <EntitySet Name="Projeto" EntityType="Self.Projeto" />
+          <EntitySet Name="TipoUsuario" EntityType="Self.TipoUsuario" />
+          <AssociationSet Name="FK_TipoAluno" Association="Self.FK_TipoAluno">
+            <End Role="TipoUsuario" EntitySet="TipoUsuario" />
+            <End Role="Aluno" EntitySet="Aluno" />
+          </AssociationSet>
+          <AssociationSet Name="PRtipoProfessor" Association="Self.PRtipoProfessor">
+            <End Role="TipoUsuario" EntitySet="TipoUsuario" />
+            <End Role="Professor" EntitySet="Professor" />
+          </AssociationSet>
+          <AssociationSet Name="Aluno_Projeto" Association="Self.Aluno_Projeto">
+            <End Role="Aluno" EntitySet="Aluno" />
+            <End Role="Projeto" EntitySet="Projeto" />
+          </AssociationSet>
+          <AssociationSet Name="Avaliador_Projeto" Association="Self.Avaliador_Projeto">
+            <End Role="Avaliador" EntitySet="Avaliador" />
+            <End Role="Projeto" EntitySet="Projeto" />
+          </AssociationSet>
+          <AssociationSet Name="Orientador_Projeto" Association="Self.Orientador_Projeto">
+            <End Role="Professor" EntitySet="Professor" />
+            <End Role="Projeto" EntitySet="Projeto" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="IntegradosDBModelStoreContainer" CdmEntityContainer="IntegradosDBEntity">
+          <EntitySetMapping Name="C__RefactorLog">
+            <EntityTypeMapping TypeName="IntegradosDBModel.C__RefactorLog">
+              <MappingFragment StoreEntitySet="__RefactorLog">
+                <ScalarProperty Name="OperationKey" ColumnName="OperationKey" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Administrador">
+            <EntityTypeMapping TypeName="IntegradosDBModel.Administrador">
+              <MappingFragment StoreEntitySet="Administrador">
+                <ScalarProperty Name="ADID" ColumnName="ADID" />
+                <ScalarProperty Name="ADLogin" ColumnName="ADLogin" />
+                <ScalarProperty Name="ADSenha" ColumnName="ADSenha" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Aluno">
+            <EntityTypeMapping TypeName="IntegradosDBModel.Aluno">
+              <MappingFragment StoreEntitySet="Aluno">
+                <ScalarProperty Name="ALIDaluno" ColumnName="ALIDaluno" />
+                <ScalarProperty Name="ALtipoAluno" ColumnName="ALtipoAluno" />
+                <ScalarProperty Name="ALemail" ColumnName="ALemail" />
+                <ScalarProperty Name="ALsenha" ColumnName="ALsenha" />
+                <ScalarProperty Name="ALnome" ColumnName="ALnome" />
+                <ScalarProperty Name="ALcurso" ColumnName="ALcurso" />
+                <ScalarProperty Name="ALperiodo" ColumnName="ALperiodo" />
+                <ScalarProperty Name="ALcampus" ColumnName="ALcampus" />
+                <ScalarProperty Name="ALprojetos" ColumnName="ALprojetos" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Avaliador">
+            <EntityTypeMapping TypeName="IntegradosDBModel.Avaliador">
+              <MappingFragment StoreEntitySet="Avaliador">
+                <ScalarProperty Name="AVIDavaliador" ColumnName="AVIDavaliador" />
+                <ScalarProperty Name="AVemail" ColumnName="AVemail" />
+                <ScalarProperty Name="AVsenha" ColumnName="AVsenha" />
+                <ScalarProperty Name="AVnome" ColumnName="AVnome" />
+                <ScalarProperty Name="AVareaAtuacao" ColumnName="AVareaAtuacao" />
+                <ScalarProperty Name="AVformacao" ColumnName="AVformacao" />
+                <ScalarProperty Name="AVprojetosAvaliados" ColumnName="AVprojetosAvaliados" />
+                <ScalarProperty Name="AVProjetosEmAvaliacao" ColumnName="AVProjetosEmAvaliacao" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Login">
+            <EntityTypeMapping TypeName="IntegradosDBModel.Login">
+              <MappingFragment StoreEntitySet="Login">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="LOLogin" ColumnName="LOLogin" />
+                <ScalarProperty Name="LOSenha" ColumnName="LOSenha" />
+                <ScalarProperty Name="LOTipoUsuario" ColumnName="LOTipoUsuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Professor">
+            <EntityTypeMapping TypeName="IntegradosDBModel.Professor">
+              <MappingFragment StoreEntitySet="Professor">
+                <ScalarProperty Name="PRIDprofessor" ColumnName="PRIDprofessor" />
+                <ScalarProperty Name="PRemail" ColumnName="PRemail" />
+                <ScalarProperty Name="PRsenha" ColumnName="PRsenha" />
+                <ScalarProperty Name="PRdisciplinaPrincipal" ColumnName="PRdisciplinaPrincipal" />
+                <ScalarProperty Name="PRdepartamento" ColumnName="PRdepartamento" />
+                <ScalarProperty Name="PRtipoProfessor" ColumnName="PRtipoProfessor" />
+                <ScalarProperty Name="PRprojetosQueOrienta" ColumnName="PRprojetosQueOrienta" />
+                <ScalarProperty Name="PRprojetosQueOrientou" ColumnName="PRprojetosQueOrientou" />
+                <ScalarProperty Name="PRnome" ColumnName="PRnome" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Projeto">
+            <EntityTypeMapping TypeName="IntegradosDBModel.Projeto">
+              <MappingFragment StoreEntitySet="Projeto">
+                <ScalarProperty Name="PRIDprojeto" ColumnName="PRIDprojeto" />
+                <ScalarProperty Name="PRalunoLider" ColumnName="PRalunoLider" />
+                <ScalarProperty Name="PRorientador" ColumnName="PRorientador" />
+                <ScalarProperty Name="PRavaliadorExterno" ColumnName="PRavaliadorExterno" />
+                <ScalarProperty Name="PRnome" ColumnName="PRnome" />
+                <ScalarProperty Name="PRdescricao" ColumnName="PRdescricao" />
+                <ScalarProperty Name="PRnotaFinal" ColumnName="PRnotaFinal" />
+                <ScalarProperty Name="PRStatusProjeto" ColumnName="PRStatusProjeto" />
+                <ScalarProperty Name="PRComentarios" ColumnName="PRComentarios" />
+                <ScalarProperty Name="PRAvaliacao" ColumnName="PRAvaliacao" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoUsuario">
+            <EntityTypeMapping TypeName="IntegradosDBModel.TipoUsuario">
+              <MappingFragment StoreEntitySet="TipoUsuario">
+                <ScalarProperty Name="TUIDusuario" ColumnName="TUIDusuario" />
+                <ScalarProperty Name="TUdescricao" ColumnName="TUdescricao" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Aluno_Projeto" TypeName="IntegradosDBModel.Aluno_Projeto" StoreEntitySet="Aluno_Projeto">
+            <EndProperty Name="Aluno">
+              <ScalarProperty Name="ALIDaluno" ColumnName="ALPRIDaluno" />
+            </EndProperty>
+            <EndProperty Name="Projeto">
+              <ScalarProperty Name="PRIDprojeto" ColumnName="ALPRIDprojeto" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="Avaliador_Projeto" TypeName="IntegradosDBModel.Avaliador_Projeto" StoreEntitySet="Avaliador_Projeto">
+            <EndProperty Name="Avaliador">
+              <ScalarProperty Name="AVIDavaliador" ColumnName="AVPRIDavaliador" />
+            </EndProperty>
+            <EndProperty Name="Projeto">
+              <ScalarProperty Name="PRIDprojeto" ColumnName="AVPRIDprojeto" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="Orientador_Projeto" TypeName="IntegradosDBModel.Orientador_Projeto" StoreEntitySet="Orientador_Projeto">
+            <EndProperty Name="Professor">
+              <ScalarProperty Name="PRIDprofessor" ColumnName="ORPRIDprofessor" />
+            </EndProperty>
+            <EndProperty Name="Projeto">
+              <ScalarProperty Name="PRIDprojeto" ColumnName="ORPRIDprojeto" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

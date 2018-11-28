@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout_Form.cshtml";
+}
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+</head>
+<html>
+<body>
+
+    <div class=form-group>
+        <label class="col-lg-2 col-md-2 control-label"> Tipo Usuário</label>
+        <div class="col-lg-5 col-md-5">
+            @Html.DropDownList("tipoUsuario", "Escolha seu Tipo de Usuário")
+        </div>
+    </div>
+   
+    <p>
+        Login:<input id="Login" type="text" />
+    </p>
+    <p>
+        Senha:<input id="Senha" type="password" />
+    </p>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+
+                @Html.ActionLink("Logar", "Logar") |
+                @Html.ActionLink("Cadastrar", "Cadastrar") 
+
+        </div>
+    </div>
+</body>
+</html>

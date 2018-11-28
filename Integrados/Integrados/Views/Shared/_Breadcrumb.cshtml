@@ -1,0 +1,18 @@
+﻿@Html.ActionLink("Home", "Index", "Home")
+
+@using Repositorio.DAL.Repositorios
+@{ 
+    var controladora = ViewContext.RouteData.Values["controller"].ToString();
+    controladora = controladora + "Controller"; // concatena o controller com a palavra Controller para formar a string. Ex. Home + Controller = HomeController
+    var titulo = new ControladorRepositorio().BuscarTituloControladorPorNomeController(controladora);
+}
+
+@if (ViewContext.RouteData.Values["controller"].ToString() != "Home")
+{
+    @:> @Html.ActionLink(titulo, "Index", ViewContext.RouteData.Values["controller"].ToString())
+}
+
+@if (ViewContext.RouteData.Values["action"].ToString() != "Index")
+{
+    @:> @Html.ActionLink(ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString())
+}

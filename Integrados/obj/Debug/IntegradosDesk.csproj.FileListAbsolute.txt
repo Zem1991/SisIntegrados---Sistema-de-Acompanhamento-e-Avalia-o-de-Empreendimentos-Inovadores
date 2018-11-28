@@ -1,0 +1,15 @@
+D:\Faculdade\BSI (Ingresso em 2013.2)\2015.2\Desenvolvimento Integrado de Sistemas - PBueno\integrados_klaus+Zem\Integrados\Integrados\bin\Debug\Integrados.exe.config
+D:\Faculdade\BSI (Ingresso em 2013.2)\2015.2\Desenvolvimento Integrado de Sistemas - PBueno\integrados_klaus+Zem\Integrados\Integrados\obj\Debug\IntegradosDesk.csprojResolveAssemblyReference.cache
+D:\Faculdade\BSI (Ingresso em 2013.2)\2015.2\Desenvolvimento Integrado de Sistemas - PBueno\integrados_klaus+Zem\Integrados\Integrados\obj\Debug\Integrados.AvaliarProjeto.resources
+D:\Faculdade\BSI (Ingresso em 2013.2)\2015.2\Desenvolvimento Integrado de Sistemas - PBueno\integrados_klaus+Zem\Integrados\Integrados\obj\Debug\Integrados.Cadastrar.resources
+D:\Faculdade\BSI (Ingresso em 2013.2)\2015.2\Desenvolvimento Integrado de Sistemas - PBueno\integrados_klaus+Zem\Integrados\Integrados\obj\Debug\Integrados.CadastroAdministrador.resources
+D:\Faculdade\BSI (Ingresso em 2013.2)\2015.2\Desenvolvimento Integrado de Sistemas - PBueno\integrados_klaus+Zem\Integrados\Integrados\obj\Debug\Integrados.CadastroAvaliador.resources
+D:\Faculdade\BSI (Ingresso em 2013.2)\2015.2\Desenvolvimento Integrado de Sistemas - PBueno\integrados_klaus+Zem\Integrados\Integrados\obj\Debug\Integrados.CadastroProfessor.resources
+D:\Faculdade\BSI (Ingresso em 2013.2)\2015.2\Desenvolvimento Integrado de Sistemas - PBueno\integrados_klaus+Zem\Integrados\Integrados\obj\Debug\Integrados.ComentarProjeto.resources
+D:\Faculdade\BSI (Ingresso em 2013.2)\2015.2\Desenvolvimento Integrado de Sistemas - PBueno\integrados_klaus+Zem\Integrados\Integrados\obj\Debug\Integrados.EditarProfessor.resources
+D:\Faculdade\BSI (Ingresso em 2013.2)\2015.2\Desenvolvimento Integrado de Sistemas - PBueno\integrados_klaus+Zem\Integrados\Integrados\obj\Debug\Integrados.Error.resources
+D:\Faculdade\BSI (Ingresso em 2013.2)\2015.2\Desenvolvimento Integrado de Sistemas - PBueno\integrados_klaus+Zem\Integrados\Integrados\obj\Debug\Integrados.Home.resources
+D:\Faculdade\BSI (Ingresso em 2013.2)\2015.2\Desenvolvimento Integrado de Sistemas - PBueno\integrados_klaus+Zem\Integrados\Integrados\obj\Debug\Integrados.ListaProjetos.resources
+D:\Faculdade\BSI (Ingresso em 2013.2)\2015.2\Desenvolvimento Integrado de Sistemas - PBueno\integrados_klaus+Zem\Integrados\Integrados\obj\Debug\Integrados.Login.resources
+D:\Faculdade\BSI (Ingresso em 2013.2)\2015.2\Desenvolvimento Integrado de Sistemas - PBueno\integrados_klaus+Zem\Integrados\Integrados\obj\Debug\Integrados.QuantificarValor.resources
+D:\Faculdade\BSI (Ingresso em 2013.2)\2015.2\Desenvolvimento Integrado de Sistemas - PBueno\integrados_klaus+Zem\Integrados\Integrados\obj\Debug\IntegradosDesk.csproj.GenerateResource.Cache

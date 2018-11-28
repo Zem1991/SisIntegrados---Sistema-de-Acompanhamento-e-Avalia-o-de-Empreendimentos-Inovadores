@@ -1,0 +1,62 @@
+﻿@model Repositorio.Entidades.Projeto
+
+@{
+    ViewBag.Title = "Escolher Avaliador Projeto";
+}
+
+<div class="row">
+    <div class="col-lg-12 col-md-12 heading">
+        <h1 class="page-header"><i class="ec-pencil"></i>Escolher Avaliador Projeto</h1>
+        <ul class="breadcrumb"> </ul>
+    </div>
+</div>
+<div class="outlet">
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <div class="panel panel-default plain">
+                <div class="panel-heading white-bg">
+                </div>
+                <div class="panel-body">
+
+                    @if (ViewBag.Exception != null)
+                    {
+                        <div class="col-lg-12 col-md-12">
+                            <div class="panel panel-danger panel-closed toggle panelRefresh panelClose showControls">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title"> Erro ao realizar operação, tente novamente! </h4>
+                                </div>
+                                <div class="panel-body">
+                                    <font size="-2"> @ViewBag.Exception </font>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    @using (Html.BeginForm("EscolherAvaliador", "Projeto", FormMethod.Post, new { @class = "form-horizontal group-border hover-stripped" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        @Html.ValidationSummary(true)
+                        @Html.HiddenFor(model => model.PRIDprojeto)
+ 
+                         <div class="form-group">
+                            @Html.LabelFor(model => model.PRavaliadorExterno, "PRavaliadorExterno", new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DropDownList("PRavaliadorExterno", String.Empty)
+                                @Html.ValidationMessageFor(model => model.PRavaliadorExterno)
+                            </div>
+                        </div>
+
+                        <div class=form-group>
+                            <label class="col-lg-2 col-md-2 control-label">  </label>
+                            <div class="col-lg-5 col-md-5">
+                                @Html.ActionLink("Voltar", "Index", null, new { @class = "btn btn-info" })
+                                <input type="submit" value="Salvar" class="btn btn-info" />
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

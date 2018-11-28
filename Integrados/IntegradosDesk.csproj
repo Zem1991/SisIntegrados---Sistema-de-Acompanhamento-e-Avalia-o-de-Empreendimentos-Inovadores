@@ -1,0 +1,229 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0EDE6DA8-9AD7-4257-90C8-2816B082A7E8}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Integrados</RootNamespace>
+    <AssemblyName>Integrados</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AvaliarProjeto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AvaliarProjeto.Designer.cs">
+      <DependentUpon>AvaliarProjeto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cadastrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cadastrar.Designer.cs">
+      <DependentUpon>Cadastrar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CadastroAdministrador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CadastroAdministrador.Designer.cs">
+      <DependentUpon>CadastroAdministrador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CadastroAvaliador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CadastroAvaliador.Designer.cs">
+      <DependentUpon>CadastroAvaliador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CadastroProfessor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CadastroProfessor.Designer.cs">
+      <DependentUpon>CadastroProfessor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ComentarProjeto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ComentarProjeto.Designer.cs">
+      <DependentUpon>ComentarProjeto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditarProfessor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditarProfessor.Designer.cs">
+      <DependentUpon>EditarProfessor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Error.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Error.Designer.cs">
+      <DependentUpon>Error.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home.Designer.cs">
+      <DependentUpon>Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IntegradosDBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IntegradosDBDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ListaProjetos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListaProjetos.Designer.cs">
+      <DependentUpon>ListaProjetos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuantificarValor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuantificarValor.Designer.cs">
+      <DependentUpon>QuantificarValor.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AvaliarProjeto.resx">
+      <DependentUpon>AvaliarProjeto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cadastrar.resx">
+      <DependentUpon>Cadastrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CadastroAdministrador.resx">
+      <DependentUpon>CadastroAdministrador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CadastroAvaliador.resx">
+      <DependentUpon>CadastroAvaliador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CadastroProfessor.resx">
+      <DependentUpon>CadastroProfessor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ComentarProjeto.resx">
+      <DependentUpon>ComentarProjeto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditarProfessor.resx">
+      <DependentUpon>EditarProfessor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Error.resx">
+      <DependentUpon>Error.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home.resx">
+      <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListaProjetos.resx">
+      <DependentUpon>ListaProjetos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="QuantificarValor.resx">
+      <DependentUpon>QuantificarValor.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="IntegradosDBDataSet.xsc">
+      <DependentUpon>IntegradosDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="IntegradosDBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>IntegradosDBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="IntegradosDBDataSet.xss">
+      <DependentUpon>IntegradosDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="RepositorioDal\RepositorioDAL.csproj">
+      <Project>{2d03d1cc-b53e-48b0-9e6c-0d1d97c1dc0a}</Project>
+      <Name>RepositorioDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="RepositorioEntidades\RepositorioEntidades.csproj">
+      <Project>{6177877a-dd8c-4785-9001-a339607ec308}</Project>
+      <Name>RepositorioEntidades</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

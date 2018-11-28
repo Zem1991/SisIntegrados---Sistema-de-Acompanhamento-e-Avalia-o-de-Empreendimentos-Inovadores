@@ -1,0 +1,100 @@
+﻿@model Repositorio.Entidades.Avaliador
+
+@{
+    ViewBag.Title = "Editar Avaliador";
+}
+
+<div class="row">
+    <div class="col-lg-12 col-md-12 heading">
+        <h1 class="page-header"><i class="ec-pencil"></i>Editar Avaliador</h1>
+        <ul class="breadcrumb"> </ul>
+    </div>
+</div>
+<div class="outlet">
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <div class="panel panel-default plain">
+                <div class="panel-heading white-bg">
+                </div>
+                <div class="panel-body">
+
+                    @if (ViewBag.Exception != null)
+                    {
+                        <div class="col-lg-12 col-md-12">
+                            <div class="panel panel-danger panel-closed toggle panelRefresh panelClose showControls">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title"> Erro ao realizar operação, tente novamente! </h4>
+                                </div>
+                                <div class="panel-body">
+                                    <font size="-2"> @ViewBag.Exception </font>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    @using (Html.BeginForm("Editar", "Avaliador", FormMethod.Post, new { @class = "form-horizontal group-border hover-stripped" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        @Html.ValidationSummary(true)
+                        @Html.HiddenFor(model => model.AVIDavaliador)
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.AVemail, new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.AVemail)
+                                @Html.ValidationMessageFor(model => model.AVemail)
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.AVsenha, new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.AVsenha)
+                                @Html.ValidationMessageFor(model => model.AVsenha)
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.AVnome, new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.AVnome)
+                                @Html.ValidationMessageFor(model => model.AVnome)
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.AVareaAtuacao, new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.AVareaAtuacao)
+                                @Html.ValidationMessageFor(model => model.AVareaAtuacao)
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.AVformacao, new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.AVformacao)
+                                @Html.ValidationMessageFor(model => model.AVformacao)
+                            </div>
+                        </div>
+
+                        <div class=form-group>
+                            <label class="col-lg-2 col-md-2 control-label"> @Html.LabelFor(model => model.AVValido)</label>
+                            <div class="col-lg-5 col-md-5">
+                                @Html.DropDownList("AVValido", String.Empty)
+                            </div>
+                        </div>
+                        
+                        <div class=form-group>
+                            <label class="col-lg-2 col-md-2 control-label">  </label>
+                            <div class="col-lg-5 col-md-5">
+                                @Html.ActionLink("Voltar", "Index", null, new { @class = "btn btn-info" })
+                                <input type="submit" value="Salvar" class="btn btn-info" />
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

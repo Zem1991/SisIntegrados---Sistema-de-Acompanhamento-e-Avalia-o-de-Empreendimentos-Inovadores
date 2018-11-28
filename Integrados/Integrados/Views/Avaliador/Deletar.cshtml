@@ -1,0 +1,100 @@
+﻿@model Repositorio.Entidades.Avaliador
+
+@{
+    ViewBag.Title = "Deletar Avaliador";
+}
+
+<div class="row">
+    <div class="col-lg-12 col-md-12 heading">
+        <h1 class="page-header"><i class="ec-pencil"></i>Apagar Avaliador</h1>
+        <ul class="breadcrumb"> </ul>
+    </div>
+</div>
+<div class="outlet">
+    <div class="row">
+        <div class="col-lg-8 col-md-8">
+            <div class="panel panel-default plain">
+                <div class="panel-heading white-bg">
+                </div>
+                <div class="panel-body">
+                    @if (ViewBag.Exception != null)
+                    {
+                        <div class="col-lg-12 col-md-12">
+                            <div class="panel panel-danger panel-closed toggle panelRefresh panelClose showControls">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title"> Erro ao realizar operação, tente novamente! </h4>
+                                </div>
+                                <div class="panel-body">
+                                    <font size="-2"> @ViewBag.Exception </font>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                    <table class="table">
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+                            
+                            
+                            <tr>
+                                <td align="right"> @Html.DisplayNameFor(model => model.AVemail)</td>
+                                <td align="left">
+                                    @Html.DisplayFor(model => model.AVemail)
+                                </td>
+                            </tr>
+                            
+                           <tr>
+                                <td align="right"> @Html.DisplayNameFor(model => model.AVsenha)</td>
+                                <td align="left">
+                                    @Html.DisplayFor(model => model.AVsenha)
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td align="right"> @Html.DisplayNameFor(model => model.AVnome)</td>
+                                <td align="left">
+                                    @Html.DisplayFor(model => model.AVnome)
+                                </td>
+                            </tr>
+
+                             <tr>
+                                <td align="right"> @Html.DisplayNameFor(model => model.AVareaAtuacao)</td>
+                                <td align="left">
+                                    @Html.DisplayFor(model => model.AVareaAtuacao)
+                                </td>
+                            </tr>
+
+                           <tr>
+                                <td align="right"> @Html.DisplayNameFor(model => model.AVformacao)</td>
+                                <td align="left">
+                                    @Html.DisplayFor(model => model.AVformacao)
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td align="right"> @Html.DisplayNameFor(model => model.AVprojetosAvaliados)</td>
+                                <td align="left">
+                                    @Html.DisplayFor(model => model.AVprojetosAvaliados)
+                                </td>
+                            </tr>
+
+                           <tr>
+                                <td align="right"> @Html.DisplayNameFor(model => model.AVProjetosEmAvaliacao)</td>
+                                <td align="left">
+                                    @Html.DisplayFor(model => model.AVProjetosEmAvaliacao)
+                                </td>
+                            </tr>
+
+                             <tr>
+                                <td align="right">@Html.ActionLink("Voltar", "Index", null, new { @class = "btn btn-info" })</td>
+                                <td><input type="submit" value="Deletar" class="btn btn-info" /></td>
+                            </tr>
+                        }
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

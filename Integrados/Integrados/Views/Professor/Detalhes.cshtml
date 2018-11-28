@@ -1,0 +1,104 @@
+﻿@model Repositorio.Entidades.Professor
+@{
+    ViewBag.Title = "Detalhes do Professor";
+}
+
+<div class="row">
+    <div class="col-lg-12 col-md-12 heading">
+        <h1 class="page-header"><i class="im-file"></i>Professor</h1>
+        <ul class="breadcrumb"> </ul>
+    </div>
+</div>
+<div class="outlet">
+    <div class="row">
+        <div class="col-lg-8 col-md-8">
+            <div class="panel panel-default plain">
+                <div class="panel-heading white-bg">
+                </div>
+                <div class="panel-body">
+                    @if (ViewBag.Exception != null)
+                    {
+                        <div class="col-lg-12 col-md-12">
+                            <div class="panel panel-danger panel-closed toggle panelRefresh panelClose showControls">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title"> Erro ao realizar operação, tente novamente! </h4>
+                                </div>
+                                <div class="panel-body">
+                                    <font size="-2"> @ViewBag.Exception </font>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                    <table class="table">
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <tr>
+                                <td align="right"> @Html.DisplayNameFor(model => model.PRemail)</td>
+                                <td align="left">
+                                    @Html.DisplayFor(model => model.PRemail)
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td align="right"> @Html.DisplayNameFor(model => model.PRsenha)</td>
+                                <td align="left">
+                                    @Html.DisplayFor(model => model.PRsenha)
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td align="right"> @Html.DisplayNameFor(model => model.PRdisciplinaPrincipal)</td>
+                                <td align="left">
+                                    @Html.DisplayFor(model => model.PRdisciplinaPrincipal)
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td align="right"> @Html.DisplayNameFor(model => model.PRdepartamento)</td>
+                                <td align="left">
+                                    @Html.DisplayFor(model => model.PRdepartamento)
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td align="right"> @Html.DisplayNameFor(model => model.PRprojetosQueOrienta)</td>
+                                <td align="left">
+                                    @Html.DisplayFor(model => model.PRprojetosQueOrienta)
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td align="right"> @Html.DisplayNameFor(model => model.PRprojetosQueOrientou)</td>
+                                <td align="left">
+                                    @Html.DisplayFor(model => model.PRprojetosQueOrientou)
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td align="right"> @Html.DisplayNameFor(model => model.PRnome)</td>
+                                <td align="left">
+                                    @Html.DisplayFor(model => model.PRnome)
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td align="right"> @Html.DisplayNameFor(model => model.TipoUsuario.TUdescricao)</td>
+                                <td align="left">
+                                    @Html.DisplayFor(model => model.TipoUsuario.TUdescricao)
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td align="right">@Html.ActionLink("Voltar", "Index", null, new { @class = "btn btn-info" })</td>
+                                <td>@Html.ActionLink("Editar", "Editar", new { id = Model.PRIDprofessor }, new { @class = "btn btn-info" })</td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
